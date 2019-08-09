@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous">
+        </script>
+        <!-- <script>
+            $(document).ready(function() {
+                var date = new Date();
+                date.setHours(0,0);
+                document.getElementById("start").value = date;
+                date.setHours(23,59);
+                document.getElementById("end").value = date;
+            })
+        </script> -->
+        <script>
+            var ctx, temp_chart;
+            $(document).ready(function() {
+                ctx = document.getElementById('temp').getContext('2d');
+                var config = {
+                    type: "line",
+                    data: {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: 'Temperature',
+                                data: []
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: false
+                    }
+                };
+                temp_chart = new Chart(ctx, config);
+            });
+            
+            function chart(dates, temps, humids) {
+                dates = dates.map( (x) => (new Date(x*1000)) );
+                console.log(dates);
+                var temp_points = dates.map(function(time , index) {
+                    return {"x": time, "y":temps[index]};
+                });
+                var date_labels = dates.map( (dt) => (dt.getHours() + ":" + dt.getMinutes()));
+                console.log(temp_points);
+                temp_chart.data.labels = date_labels;
+                temp_chart.data.datasets.forEach((dataset) => {
+                    dataset.data = temp_points;
+                });
+                // temp_chart.options = {
+                //     scales: {
+                //         xAxes: [{
+                //             type: 'time',
+                //             time: {
+                //                 unit: 'hour'
+                //             }
+                //         }]
+                //     },
+                //     responsive: false
+                // };
+                temp_chart.update();
+            }
+
+
+            function plot() {
+                var xhttp = new XMLHttpRequest();
+                var date_start = document.getElementById("start").value;
+                var date_end = document.getElementById("end").value;
+                date_start = new Date(date_start);
+                date_end = new Date(date_end);
+                var date_start_ts = date_start.getTime()/1000;
+                var date_end_ts = date_end.getTime()/1000;
+                console.log(date_start_ts);
+                console.log(date_end_ts);
+                
+                var dates, temps, humid;
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var json = JSON.parse(this.responseText);
+                        if (json != null) {
+                            dates = json['date'];
+                            temps = json['temp'];
+                            humids = json['humid'];
+                            console.log(dates, temps, humids);
+                            chart(dates, temps, humids);
+                        }
+                        else {
+                            chart([], [], []);
+                        }
+                    }
+                }
+                xhttp.open("GET", `http://xproject.ddns.net:3000/query?deviceID=ESP8266_01&date_start=${date_start_ts}&date_end=${date_end_ts}`, true);
+                // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+                // xhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+                // xhttp.setRequestHeader("Access-Control-Allow-Headers", "Origin, Content-Type, X-Auth-Token");
+                xhttp.send();
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="temp" width=800 height=400></canvas>
+        <canvas id="humid" width=400 height=400></canvas>
+        <input type="datetime-local" id="start" value="2019-08-08T00:00" name="From" onchange="plot();">
+        <input type="datetime-local" id="end" value="2019-08-08T23:59" name="To" onchange="plot();">
+       
+    </body>
+</html>

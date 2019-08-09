@@ -1,0 +1,51 @@
+id,level,stage,name_unicode,name,r,phi,theta,pre_id,r_sphere
+0,0,1,HỆ THỐNG GIAO THÔNG THÀNH PHỐ ĐÀ NẴNG,HE THONG GIAO THONG THANH PHO DA NANG,0,0,90,-1,13
+1,1,2,HẠ TẦNG GIAO THÔNG ĐƯỜNG THUỶ NỘI ĐỊA,HA TANG GIAO THONG DUONG THUY NOI DIA,60,0,90,0,11
+2,2,2,HẠ TẦNG GIAO THÔNG CẦU ĐƯỜNG BỘ,HA TANG GIAO THONG CAU DUONG BO,60,120,90,0,11
+3,3,2,HẠ TẦNG GIAO THÔNG ĐƯỜNG BỘ,HA TANG GIAO THONG DUONG BO,60,240,90,0,11
+4,11,3,Tuyến sông,Tuyen song,60,45,90,1,9
+5,12,3,Hồ sơ quản lý,Ho so quan ly,60,315,90,1,9
+6,21,3,Công trình câu,Cong trinh cau,60,120,90,2,9
+7,31,3,Tuyến đường,Tuyen duong,60,240,90,3,9
+8,111,4,Hành lang bảo vệ luồng,Hanh lang bao ve luong,90,45,90,4,7
+9,112,4,Cảng và bến,Cang va ben,90,75,90,4,7
+10,113,4,Luồng tầu chạy,Luong tau chay,90,120,90,4,7
+11,114,4,Bờ sông,Bo song,90,15,90,4,7
+12,115,4,Báo hiệu,Bao hieu,90,345,90,4,7
+13,211,4,Hồ sơ quản lý,Ho so quan ly,90,75,90,6,7
+14,212,4,Công tác quản lý,Cong tac quan ly,90,165,90,6,7
+15,311,4,Hồ sơ quản lý,Ho so quan ly,90,195,90,7,7
+16,312,4,Công tác quản lý,Cong tac quan ly,90,285,90,7,7
+17,1131,5,Thông tin về tàu hành thuỷ,Thong tin ve tau hanh thuy,60,120,90,10,5
+18,1132,5,Chuẩn tắc luồng,Chuan tac luong,60,160,90,10,5
+19,1133,5,Chướng ngại vật bãi bồi bãi cạn,Chuong ngai vat bai boi bai can,60,80,90,10,5
+20,1141,5,Các công trình ven sông,Cac cong trinh ven song,60,330,90,11,5
+21,1142,5,Các hoạt động có nguy cơ ảnh hướng đến bờ sông,Cac hoat dong co nguy co anh huong den bo song,60,60,90,11,5
+22,1151,5,Tiêu chập tiêu,Tieu chap tieu,60,325,90,12,5
+23,1152,5,Đèn báo hiệu,Den bao hieu,60,5,90,12,5
+24,1153,5,Phao báo hiệu,Phao bao hieu,60,45,90,12,5
+25,1154,5,Biển báo hiệu,Bien bao hieu,60,285,90,12,5
+26,11541,6,Trên cầu,Tren cau,30,330,90,25,3
+27,11542,6,Trên bờ,Tren bo,30,240,90,25,3
+28,2121,5,Tai nạn,Tai nan,60,145,90,14,5
+29,2122,5,Hệ thống ATGT,He thong ATGT,60,185,90,14,5
+30,2123,5,Giấy phép,Giay phep,60,125,90,14,5
+31,2124,5,Tình trạng,Tinh trang,60,205,90,14,5
+32,21221,6,Biển báo,Bien bao,30,185,90,29,3
+33,21222,6,Vạch sơn,Vach son,30,140,90,29,3
+34,21223,6,Khác,Khac,30,230,90,29,3
+35,21241,6,Mố trụ mái taluy,Mo tru mai taluy,30,225,90,31,3
+36,21242,6,Mặt cầu lề bộ hành,Mat cau le bo hanh,30,265,90,31,3
+37,21243,6,Khe co giãn,Khe co gian,30,185,90,31,3
+38,21244,6,khác,khac,30,145,90,31,3
+39,3121,5,Hệ thống ATGT,He thong ATGT,30,305,90,16,5
+40,3122,5,Theo dõi tai nạn,Theo doi tai nan,30,345,90,16,5
+41,3123,5,Tình trạng,Tinh trang,30,265,90,16,5
+42,3124,5,Theo dõi giấy phép,Theo doi giay phep,30,225,90,16,5
+43,31211,6,Đèn tín hiệu,Den tin hieu,30,325,90,39,3
+44,31212,6,Biển báo hiệu,Bien bao hieu,30,5,90,39,3
+45,31213,6,Vạch sơn,Vach son,30,285,90,39,3
+46,31214,6,Khác,Khac,30,245,90,39,3
+47,31231,6,Mặt đường,Mat duong,30,265,90,41,3
+48,31232,6,Vỉa hè,Via he,30,220,90,41,3
+49,31233,6,Khác,Khac,30,310,90,41,3

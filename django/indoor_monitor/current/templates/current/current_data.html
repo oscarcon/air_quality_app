@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+        <script>
+            function update() {
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var json = JSON.parse(this.responseText);
+                        var date = new Date(json.date["$date"]);
+                        console.log(json.warning);
+                        document.getElementById("date").innerHTML = date;
+                        document.getElementById("temp").innerHTML = json.temp;
+                        document.getElementById("humid").innerHTML = json.humid;
+                        document.getElementById("hi").innerHTML = json.heat_index;
+                        document.getElementById("warning").innerHTML = json.warning;
+                    }
+                }
+                xhttp.open("GET", "http://xproject.ddns.net:3000/devices/ESP8266_01/current", true);
+                // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+                // xhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+                // xhttp.setRequestHeader("Access-Control-Allow-Headers", "Origin, Content-Type, X-Auth-Token");
+                xhttp.send();
+            }
+        </script>
+        <div style="overflow: hidden;">
+            <p style="float: left;">Date</p>
+            <p style="float: right;" id="date"></p>
+        </div>
+        <div style="overflow: hidden;">
+            <p style="float: left;">Temperature</p>
+            <p style="float: right;" id="temp"></p>
+        </div>
+        <div style="overflow: hidden;">
+            <p style="float: left;">Humidity</p>
+            <p style="float: right;" id="humid"></p>
+        </div>
+        <div style="overflow: hidden;">
+            <p style="float: left;">Heat Index</p>
+            <p style="float: right;" id="hi"></p>
+        </div>
+        <div style="overflow: hidden;">
+            <p style="float: left;">Warning</p>
+            <p style="float: right;" id="warning"></p>
+        </div>
+        <button type="button" onclick="update()">Update</button>
+        {% else %}
+        <p>You're not logged in</p>
+        {% endif %}
+    </body>
+</html>
