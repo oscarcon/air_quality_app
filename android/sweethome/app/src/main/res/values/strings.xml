@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">myapp</string>
+    <string name="tab_text_1">Living Room</string>
+    <string name="tab_text_2">Kitchen</string>
+</resources>
